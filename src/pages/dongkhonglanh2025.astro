@@ -110,6 +110,9 @@ import Layout from '../layouts/Layout.astro';
                 class="text-input"
                 placeholder="example@gmail.com"
               />
+              <p class="field-note">
+                ⚠️ Thông tin vé sẽ được gửi qua Email. Vui lòng nhập chính xác địa chỉ email của bạn.
+              </p>
             </div>
             
             {/* Field 4: Năm sinh */}
@@ -592,6 +595,19 @@ import Layout from '../layouts/Layout.astro';
 
     .copy-btn.copied {
       background: var(--brand-accent);
+    }
+
+    /* === Field Note === */
+    .field-note {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.85rem;
+      color: var(--brand-accent);
+      margin-top: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: linear-gradient(135deg, rgba(244, 162, 97, 0.08), rgba(212, 137, 91, 0.05));
+      border-left: 3px solid var(--brand-accent);
+      border-radius: 6px;
+      line-height: 1.5;
     }
 
     /* === Radio & Checkbox Groups === */
