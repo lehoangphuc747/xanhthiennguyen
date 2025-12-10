@@ -25,7 +25,7 @@ import Layout from '../layouts/Layout.astro';
         {/* Event Info Card */}
         <div class="event-info-card mb-8">
           <p class="event-intro">
-            Chốc chốc mỗi năm đông về, cái lạnh se sắt len lỏi qua từng gian nhà. Chẳng phải ai cũng có một mái ấm đủ đầy, một bàn tay đủ ấm và một ánh nhìn đủ thương chính là hơi ấm giữa ngày đông giá rét.
+            Chốc chốc mỗi năm đông về, cái lạnh se sắt len lỏi qua từng gian nhà. Chẳng phải ai cũng có một mái ấm đủ đầy, một bàn tay đủ ấm và một ánh nhìn đủ thương chính là hơi ấm giữa ngày đông giá rét. Đây cũng là lúc CLB Xanh Thiện Nguyện khoác lên mình một ngày "Đông Không Lạnh". Trải qua 2 mùa, "Đông Không Lạnh" trở lại với diện mạo mới với chủ đề "Khi tim ta đủ ấm" - không chỉ là lời hứa hẹn, mà là nơi ngọn lửa trong tim gần nhau thêm.
           </p>
           <p class="event-highlight">
             🎵 Đêm nhạc gây quỹ "Đông Không Lạnh khi ta có nhau"
@@ -47,7 +47,14 @@ import Layout from '../layouts/Layout.astro';
               <span class="detail-icon">🎫</span>
               <span><strong>Quyền lợi:</strong> 1 đồ uống + 1 bánh</span>
             </div>
+            <div class="detail-item">
+              <span class="detail-icon">💳</span>
+              <span><strong>Hình thức bán:</strong> Online và offline (tại địa điểm tổ chức)</span>
+            </div>
           </div>
+          <p class="event-cta">
+            Hãy nhanh tay đăng ký, bởi lẽ "Đông Không Lạnh khi ta có nhau".
+          </p>
         </div>
 
         {/* Form Container */}
@@ -121,6 +128,39 @@ import Layout from '../layouts/Layout.astro';
                 inputmode="numeric"
                 maxlength="4"
               />
+            </div>
+
+            {/* Payment Info Section */}
+            <div class="form-payment-info">
+              <h3 class="payment-section-title">💳 Thông Tin Thanh Toán</h3>
+              <div class="payment-grid">
+                <div class="payment-row">
+                  <span class="payment-field-label">Số tài khoản:</span>
+                  <div class="copy-container">
+                    <span class="payment-field-value" id="account-number">1041221504</span>
+                    <button type="button" class="copy-btn" data-target="account-number">
+                      📋 Copy
+                    </button>
+                  </div>
+                </div>
+                <div class="payment-row">
+                  <span class="payment-field-label">Ngân hàng:</span>
+                  <span class="payment-field-value">VIETCOMBANK</span>
+                </div>
+                <div class="payment-row">
+                  <span class="payment-field-label">Chủ tài khoản:</span>
+                  <span class="payment-field-value">NGUYEN LY NHA KY</span>
+                </div>
+                <div class="payment-row transfer-content">
+                  <span class="payment-field-label">Nội dung chuyển khoản:</span>
+                  <div class="copy-container">
+                    <span class="payment-field-value highlight" id="transfer-content">HO TEN - EMAIL - ĐKL25</span>
+                    <button type="button" class="copy-btn" data-target="transfer-content">
+                      📋 Copy
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
             
             {/* Field 5: Checkbox/Hidden */}
@@ -353,6 +393,20 @@ import Layout from '../layouts/Layout.astro';
       font-weight: 700;
     }
 
+    .event-cta {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brand-accent);
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, rgba(244, 162, 97, 0.1), rgba(212, 137, 91, 0.15));
+      border-radius: 12px;
+      border: 1px dashed var(--brand-accent);
+      font-style: italic;
+    }
+
     /* === Form Card === */
     .winter-card {
       background: rgba(255, 255, 255, 0.95);
@@ -437,6 +491,107 @@ import Layout from '../layouts/Layout.astro';
       background: var(--white);
       box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.15);
       transform: translateY(-2px);
+    }
+
+    /* === Payment Info in Form === */
+    .form-payment-info {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(82, 183, 136, 0.08), rgba(45, 106, 79, 0.05));
+      border: 2px solid var(--brand-secondary);
+      border-radius: 16px;
+    }
+
+    .payment-section-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .payment-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .payment-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--white);
+      border-radius: 10px;
+      font-family: 'Quicksand', sans-serif;
+      gap: 1rem;
+    }
+
+    .payment-row.transfer-content {
+      background: linear-gradient(135deg, rgba(244, 162, 97, 0.12), rgba(212, 137, 91, 0.08));
+      border: 1px solid var(--brand-accent);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .payment-field-label {
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .payment-field-value {
+      font-weight: 700;
+      color: var(--brand-primary);
+      font-size: 1rem;
+      user-select: all;
+    }
+
+    .payment-field-value.highlight {
+      color: var(--brand-accent);
+      font-style: italic;
+    }
+
+    .copy-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .transfer-content .copy-container {
+      width: 100%;
+    }
+
+    .copy-btn {
+      font-family: 'Quicksand', sans-serif;
+      padding: 0.4rem 0.75rem;
+      background: var(--brand-secondary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .copy-btn:hover {
+      background: var(--brand-primary);
+      transform: scale(1.05);
+    }
+
+    .copy-btn:active {
+      transform: scale(0.95);
+    }
+
+    .copy-btn.copied {
+      background: var(--brand-accent);
     }
 
     /* === Radio & Checkbox Groups === */
@@ -741,6 +896,74 @@ import Layout from '../layouts/Layout.astro';
           errorMessage?.classList.add('show');
           errorMessage?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
+      });
+    });
+  </script>
+
+  <script>
+    // Normalize Vietnamese text to uppercase without diacritics
+    function normalizeVietnamese(str) {
+      return str
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toUpperCase()
+        .replace(/Đ/g, 'D');
+    }
+
+    // Update transfer content dynamically
+    function updateTransferContent() {
+      const nameInput = document.querySelector('input[name="entry.1010974714"]') as HTMLInputElement;
+      const emailInput = document.querySelector('input[name="entry.698410166"]') as HTMLInputElement;
+      const transferContentElement = document.getElementById('transfer-content');
+      
+      if (!transferContentElement) return;
+
+      const name = nameInput?.value.trim() || 'HO TEN';
+      const email = emailInput?.value.trim() || 'EMAIL';
+      
+      const normalizedName = normalizeVietnamese(name);
+      const transferContent = `${normalizedName} - ${email} - ĐKL25`;
+      
+      transferContentElement.textContent = transferContent;
+    }
+
+    // Copy to clipboard function
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add event listeners for auto-update transfer content
+      const nameInput = document.querySelector('input[name="entry.1010974714"]');
+      const emailInput = document.querySelector('input[name="entry.698410166"]');
+      
+      nameInput?.addEventListener('input', updateTransferContent);
+      emailInput?.addEventListener('input', updateTransferContent);
+
+      // Copy button handlers
+      const copyButtons = document.querySelectorAll('.copy-btn');
+      copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const targetId = this.getAttribute('data-target');
+          const targetElement = document.getElementById(targetId);
+          
+          if (!targetElement) return;
+
+          const text = targetElement.textContent.trim();
+          
+          navigator.clipboard.writeText(text).then(() => {
+            const originalText = this.textContent;
+            this.textContent = '✓ Copied!';
+            this.classList.add('copied');
+            
+            setTimeout(() => {
+              this.textContent = originalText;
+              this.classList.remove('copied');
+            }, 2000);
+          }).catch(err => {
+            console.error('Copy failed:', err);
+            this.textContent = '❌ Failed';
+            setTimeout(() => {
+              this.textContent = '📋 Copy';
+            }, 2000);
+          });
+        });
       });
     });
   </script>
