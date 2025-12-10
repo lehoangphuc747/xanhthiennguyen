@@ -94,7 +94,11 @@ import Layout from '../layouts/Layout.astro';
                 pattern="[0-9]{10}"
                 inputmode="numeric"
                 maxlength="10"
+                minlength="10"
               />
+              <p class="field-note error-note" id="phone-error" style="display: none;">
+                ⚠️ Số điện thoại phải có đúng 10 chữ số!
+              </p>
             </div>
             
             {/* Field 3: Email */}
@@ -610,6 +614,12 @@ import Layout from '../layouts/Layout.astro';
       line-height: 1.5;
     }
 
+    .field-note.error-note {
+      color: #d32f2f;
+      background: linear-gradient(135deg, rgba(211, 47, 47, 0.08), rgba(211, 47, 47, 0.05));
+      border-left-color: #d32f2f;
+    }
+
     /* === Radio & Checkbox Groups === */
     .radio-group,
     .checkbox-group {
@@ -819,6 +829,22 @@ import Layout from '../layouts/Layout.astro';
       const form = document.getElementById('dongkhonglanh-form') as HTMLFormElement | null;
       const successMessage = document.getElementById('success-message');
       const errorMessage = document.getElementById('error-message');
+      const phoneInput = document.getElementById('field-phone') as HTMLInputElement | null;
+      const phoneError = document.getElementById('phone-error');
+      
+      // Real-time phone validation
+      phoneInput?.addEventListener('input', function() {
+        const value = this.value;
+        const isValid = /^[0-9]{10}$/.test(value);
+        
+        if (value.length > 0 && !isValid) {
+          phoneError?.style.setProperty('display', 'block');
+          this.style.borderColor = '#d32f2f';
+        } else {
+          phoneError?.style.setProperty('display', 'none');
+          this.style.borderColor = '';
+        }
+      });
       
       form?.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -846,6 +872,7 @@ import Layout from '../layouts/Layout.astro';
         // Validate phone is 10 digits
         if (!/^[0-9]{10}$/.test(phoneField.value)) {
           alert('Số điện thoại phải có đúng 10 chữ số!');
+          phoneError?.style.setProperty('display', 'block');
           phoneField?.focus();
           return;
         }
