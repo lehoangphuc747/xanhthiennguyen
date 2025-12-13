@@ -83,13 +83,19 @@ import Layout from '../layouts/Layout.astro';
             
             {/* Important Notice Link */}
             <div class="notice-link-container">
+              <div class="notice-warning-badge">⚠️ LƯơ Ý QUAN TRỌNG</div>
               <a 
                 href="https://docs.google.com/document/d/18THh96UlfLTn5_112EYPugcbhII1NCtpVsnU71UN5Xo/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="notice-link"
               >
-                📋 Xem lưu ý quan trọng trước khi đăng ký
+                <span class="notice-icon">📝</span>
+                <span class="notice-text">
+                  <span class="notice-main">Vui lòng đọc kỹ hướng dẫn trước khi đăng ký</span>
+                  <span class="notice-sub">Nhấn để xem thông tin chi tiết</span>
+                </span>
+                <span class="notice-arrow">➡️</span>
               </a>
             </div>
           </div>
@@ -584,33 +590,104 @@ import Layout from '../layouts/Layout.astro';
 
     /* === Notice Link === */
     .notice-link-container {
-      margin-top: 1.25rem;
+      margin-top: 1.5rem;
       text-align: center;
+    }
+
+    .notice-warning-badge {
+      display: inline-block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #d32f2f;
+      background: linear-gradient(135deg, #fff3e0 0%, #ffebee 100%);
+      padding: 0.375rem 0.875rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+      border: 2px solid #ff9800;
+      letter-spacing: 0.05em;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 8px rgba(255, 152, 0, 0);
+      }
     }
 
     .notice-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 1rem;
       font-family: 'Quicksand', sans-serif;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--brand-primary);
-      background: linear-gradient(135deg, rgba(82, 183, 136, 0.1), rgba(45, 106, 79, 0.05));
-      padding: 0.75rem 1.25rem;
-      border-radius: 10px;
+      color: #d32f2f;
+      background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
       text-decoration: none;
-      border: 1.5px solid var(--brand-secondary);
+      border: 2px solid #ff9800;
       transition: all 0.3s ease;
-      min-height: 44px;
+      min-height: 60px;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
+      box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .notice-icon {
+      font-size: 1.75rem;
+      flex-shrink: 0;
+    }
+
+    .notice-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+      text-align: left;
+    }
+
+    .notice-main {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #d32f2f;
+    }
+
+    .notice-sub {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #e65100;
+      margin-top: 0.25rem;
+    }
+
+    .notice-arrow {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      animation: bounce 1s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(5px);
+      }
     }
 
     .notice-link:hover {
-      background: linear-gradient(135deg, rgba(82, 183, 136, 0.15), rgba(45, 106, 79, 0.1));
+      background: linear-gradient(135deg, #fff3e0 0%, #ffcc80 100%);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+      box-shadow: 0 6px 20px rgba(255, 152, 0, 0.3);
+      border-color: #f57c00;
     }
 
     .notice-link:active {
