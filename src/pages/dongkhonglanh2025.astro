@@ -22,6 +22,19 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
+        {/* Promo Video */}
+        <div class="video-container mb-6 sm:mb-8">
+          <video 
+            controls 
+            preload="metadata"
+            poster="/images/dongkhonglanh2025-poster.jpg"
+            class="promo-video"
+          >
+            <source src="/videos/dongkhonglanh2025-promo.mp4" type="video/mp4" />
+            Trình duyệt của bạn không hỗ trợ video.
+          </video>
+        </div>
+
         {/* Event Info Card */}
         <div class="event-info-card mb-6 sm:mb-8">
           <p class="event-intro">
@@ -439,6 +452,24 @@ import Layout from '../layouts/Layout.astro';
       color: var(--brand-secondary);
       letter-spacing: 0.15em;
       text-transform: uppercase;
+    }
+
+    /* === Video Container === */
+    .video-container {
+      position: relative;
+      z-index: 10;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(45, 106, 79, 0.15);
+    }
+
+    .promo-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+      max-height: 70vh;
+      object-fit: contain;
     }
 
     /* === Event Info Card === */
