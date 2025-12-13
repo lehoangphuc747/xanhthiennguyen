@@ -94,25 +94,8 @@ import Layout from '../layouts/Layout.astro';
         {/* Form Container */}
         <div class="winter-card">
           <h2 class="form-title">Đăng Ký Tham Gia</h2>
-          
-          {/* Google Forms Embed */}
-          <div class="google-form-container">
-            <iframe 
-              src="https://docs.google.com/forms/d/e/1FAIpQLScuL1B2BX7-ZKG42MBuu1vWV0WnOhMrLNLsdOfjw_x6r-IjAw/viewform?embedded=true" 
-              width="100%" 
-              height="1400" 
-              frameborder="0" 
-              marginheight="0" 
-              marginwidth="0"
-              title="Form đăng ký Đông Không Lạnh 2025"
-            >
-              Đang tải…
-            </iframe>
-          </div>
-
           <form 
             id="dongkhonglanh-form"
-            style="display: none;"
           >
             
             {/* Field 1: Họ và tên */}
@@ -586,23 +569,6 @@ import Layout from '../layouts/Layout.astro';
 
     .notice-link:active {
       transform: translateY(0);
-    }
-
-    /* === Google Form Embed === */
-    .google-form-container {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--white);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .google-form-container iframe {
-      width: 100%;
-      border: none;
-      display: block;
     }
 
     /* === Form Card === */
