@@ -36,16 +36,16 @@ import Layout from '../layouts/Layout.astro';
               <span><strong>Thời gian:</strong> 21/12/2025 (18h30 - 21h30)</span>
             </div>
             <div class="detail-item">
-              <span class="detail-icon">📍</span>
-              <span><strong>Địa điểm:</strong> Homestay Làng Mắm, Huỳnh Tấn Phát, Hoà Hiệp Trung, Đông Hòa</span>
-            </div>
-            <div class="detail-item">
               <span class="detail-icon">🎟️</span>
               <span><strong>Check-in vé:</strong> Từ 18h00</span>
             </div>
             <div class="detail-item">
               <span class="detail-icon">⏰</span>
               <span><strong>Hạn đăng ký:</strong> 19/12/2025 (20h00)</span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon">📍</span>
+              <span><strong>Địa điểm:</strong> Homestay Làng Mắm, Huỳnh Tấn Phát, Hoà Hiệp Trung, Đông Hòa</span>
             </div>
             <div class="detail-item">
               <span class="detail-icon">🎫</span>
@@ -92,6 +92,27 @@ import Layout from '../layouts/Layout.astro';
                 📋 Xem lưu ý quan trọng trước khi đăng ký
               </a>
             </div>
+          </div>
+
+          {/* Zalo Support Section */}
+          <div class="zalo-support-card">
+            <h3 class="zalo-support-title">📱 Tham gia nhóm hỗ trợ khách mua vé</h3>
+            <div class="zalo-qr-wrapper">
+              <img 
+                src="/images/ZaloSupportKhachMuaVe.jpg" 
+                alt="Zalo QR Code" 
+                class="zalo-qr-image"
+              />
+            </div>
+            <p class="zalo-support-text">Quét mã QR hoặc</p>
+            <a 
+              href="https://zalo.me/g/ukhlhu681" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="zalo-support-link"
+            >
+              👉 Nhấn vào đây để tham gia nhóm Zalo
+            </a>
           </div>
         </div>
 
@@ -589,6 +610,74 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .notice-link:active {
+      transform: translateY(0);
+    }
+
+    /* === Zalo Support Card === */
+    .zalo-support-card {
+      background: linear-gradient(135deg, rgba(0, 104, 255, 0.05), rgba(0, 132, 255, 0.08));
+      border-radius: 16px;
+      padding: 1.5rem 1.25rem;
+      border: 1.5px solid rgba(0, 104, 255, 0.3);
+      margin-top: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 104, 255, 0.1);
+    }
+
+    .zalo-support-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .zalo-qr-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .zalo-qr-image {
+      max-width: 240px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .zalo-support-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      margin: 1rem 0 0.75rem 0;
+    }
+
+    .zalo-support-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--white);
+      background: linear-gradient(135deg, #0068FF 0%, #0084FF 100%);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 104, 255, 0.3);
+      min-height: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .zalo-support-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 104, 255, 0.4);
+    }
+
+    .zalo-support-link:active {
       transform: translateY(0);
     }
 
