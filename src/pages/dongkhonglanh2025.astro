@@ -41,7 +41,7 @@ import Layout from '../layouts/Layout.astro';
             </div>
             <div class="detail-item">
               <span class="detail-icon">⏰</span>
-              <span><strong>Hạn đăng ký:</strong> 18/12/2025 (23h59')</span>
+              <span><strong>Hạn đăng ký:</strong> 19/12/2025 (20h00)</span>
             </div>
             <div class="detail-item">
               <span class="detail-icon">🎫</span>
@@ -203,6 +203,27 @@ import Layout from '../layouts/Layout.astro';
             <p class="message-subtitle">
               Chúng tôi sẽ liên hệ với bạn sớm nhất.
             </p>
+            
+            {/* Zalo Support Section */}
+            <div class="zalo-support-section">
+              <h3 class="zalo-title">📱 Tham gia nhóm hỗ trợ khách mua vé</h3>
+              <div class="qr-container">
+                <img 
+                  src="/images/ZaloSupportKhachMuaVe.jpg" 
+                  alt="Zalo QR Code" 
+                  class="zalo-qr"
+                />
+              </div>
+              <p class="zalo-text">Quét mã QR hoặc</p>
+              <a 
+                href="https://zalo.me/g/ukhlhu681" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="zalo-link"
+              >
+                👉 Nhấn vào đây để tham gia nhóm Zalo
+              </a>
+            </div>
           </div>
 
           {/* Error Message */}
@@ -804,6 +825,64 @@ import Layout from '../layouts/Layout.astro';
       text-align: center;
       color: var(--text-secondary);
       margin: 0;
+    }
+
+    /* === Zalo Support Section === */
+    .zalo-support-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      border: 2px solid var(--brand-secondary);
+      text-align: center;
+    }
+
+    .zalo-title {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .zalo-qr {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .zalo-text {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin: 1rem 0 0.75rem 0;
+    }
+
+    .zalo-link {
+      display: inline-block;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      background: linear-gradient(135deg, #0068FF 0%, #0084FF 100%);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 104, 255, 0.3);
+    }
+
+    .zalo-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 104, 255, 0.4);
     }
 
     /* === Responsive === */
